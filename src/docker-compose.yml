@@ -1,0 +1,17 @@
+# INSTRUCTIONS
+# dotnet publish HelloDocker -c Release
+# docker-compose build 
+# docker-compose up
+
+version: '2'  # specify which docker compose file format we're using
+
+services:
+  # Our plain old web service
+  web:
+    image: jamescrosswell/hellodocker # friendly name for the image
+    build:
+      context: HelloDocker
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000" # expose the web application on port 5000
+    container_name: hello_docker # friendly name for the container
